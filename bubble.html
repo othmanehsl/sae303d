@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graphique animé avec des boutons</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div style="width:75%;">
+        <canvas id="myChart5"></canvas>
+    </div>
+    <button onclick="updateData('Tesla')">Tesla</button>
+    <button onclick="updateData('Audi')">Audi</button>
+    <button onclick="updateData('Volvo')">Volvo</button>
+    <button onclick="updateData('Renault')">Renault</button>
+    <button onclick="updateData('Dacia')">Dacia</button>
+    <button onclick="updateData('Fiat')">Fiat</button>
+    <button onclick="updateData('Kia')">Kia</button>
+    <button onclick="updateData('Peugeot')">Peugeot</button>
+    <button onclick="updateData('Opel')">Opel</button>
+    <button onclick="updateData('Cupra')">Cupra</button>
+
+    <script>
+        const data = {
+            "2019": {"Tesla": 10722, "Audi": 3900, "Volvo": 1000, "Renault": 7000, "Dacia": 0, "Fiat": 0, "Kia": 2000, "Peugeot": 2000, "Opel": 2000, "Cupra": 0},
+            "2020": {"Tesla": 22052, "Audi": 10716, "Volvo": 3421, "Renault": 37155, "Dacia": 1000, "Fiat": 1000, "Kia": 2000, "Peugeot": 2000, "Opel": 2000, "Cupra": 0},
+            "2021": {"Tesla": 24911, "Audi": 10716, "Volvo": 11200, "Renault": 23573, "Dacia": 11386, "Fiat": 9556, "Kia": 14280, "Peugeot": 17858, "Opel": 10000, "Cupra": 2000},
+            "2022": {"Tesla": 328386, "Audi": 162196, "Volvo": 100600, "Renault": 104409, "Dacia": 18326, "Fiat": 15163, "Kia": 22440, "Peugeot": 19219, "Opel": 10000, "Cupra": 3226},
+            "2023": {"Tesla": 354222, "Audi": 175983, "Volvo": 110200, "Renault": 115000, "Dacia": 20000, "Fiat": 16000, "Kia": 24000, "Peugeot": 20000, "Opel": 12000, "Cupra": 4000}
+        };
+
+        let ctx = document.getElementById('myChart5').getContext('2d');
+        let myChart = new Chart(ctx, {
+            type: 'bubble', // Changer le type en bubble
+            data: {
+                datasets: []
+            },
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Années'
+                        },
+                        type: 'category',
+                        labels: ['2019', '2020', '2021', '2022', '2023']
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Nombre de voitures'
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return 'Nombre de voitures: ' + context.parsed.y;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        function updateData(brand) {
+            let maxDataValue = Math.max(...Object.values(data).map(obj => obj[brand]));
+            let bubbleData = ['2019', '2020', '2021', '2022', '2023'].map((year) => {
+                return {
+                    x: year,
+                    y: data[year][brand],
+                    r: 8 + 42 * (data[year][brand] / maxDataValue) // Ajuster la taille de la bulle en fonction des données
+                };
+            });
+
+            myChart.data.datasets = [{
+                label: brand,
+                data: bubbleData,
+                backgroundColor: '#19729f' // Couleur de remplissage du bubble
+            }];
+
+            myChart.update();
+        }
+
+        // Afficher le graphique initial pour Tesla
+        updateData('Tesla');
+    </script>
+</body>
+</html>

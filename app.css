@@ -1,0 +1,231 @@
+/* Styles généraux */
+body {
+    background-color: #fff;
+}
+
+/* Header */
+.header_titre {
+    background: linear-gradient(to bottom, #0077b6, #0496e7);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.letitre {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Boutons */
+#chart,
+#btnAll,
+#btnDiesel,
+#btnEssence,
+#btnHybride,
+#btnElectrique,
+#btnDiesel:hover,
+#btnEssence:hover,
+#btnHybride:hover,
+#btnElectrique:hover,
+#show-table-button,
+#show-table-button2,
+#show-table-button3,
+#show-table-button4,
+#show-table-button5,
+#download-excel-button,
+#resetButton,
+.custom-button {
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 20px;
+    color: #fff;
+}
+
+#btnAll,
+#btnAll:hover {
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+}
+
+#btnDiesel {
+    background-color: #93D9D9;
+}
+
+#btnEssence {
+    background-color: #7FC5B5;
+}
+
+#btnHybride {
+    background-color: #76A4E7;
+}
+
+#btnElectrique {
+    background-color: #5B95CC;
+}
+
+#btnDiesel:hover,
+#btnEssence:hover,
+#btnHybride:hover,
+#btnElectrique:hover {
+    background-color: #2980b9;
+}
+
+/* Tableau agrandi */
+#table-overlay,
+#table-overlay2,
+#table-overlay3,
+#tableoverlay4,
+#table-overlay5 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Styles pour le tableau */
+#table-overlay table,
+#table-overlay2 table,
+#table-overlay3 table,
+#table-overlay4 table,
+#table-overlay5 table {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-collapse: collapse;
+    width: 80%;
+}
+
+/* Styles pour les cellules du tableau */
+#table-overlay th,
+#table-overlay td,
+#table-overlay2 th,
+#table-overlay2 td,
+#table-overlay3 th,
+#table-overlay3 td,
+#table-overlay4 th,
+#table-overlay4 td,
+#table-overlay5 th,
+#table-overlay5 td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+/* Styles alternés pour les lignes du tableau */
+#table-overlay tr:nth-child(even),
+#table-overlay2 tr:nth-child(even),
+#table-overlay3 tr:nth-child(even),
+#table-overlay4 tr:nth-child(even),
+#table-overlay5 tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#table-overlay tr:nth-child(odd),
+#table-overlay2 tr:nth-child(odd),
+#table-overlay3 tr:nth-child(odd),
+#table-overlay4 tr:nth-child(odd),
+#table-overlay5 tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+/* Effet hover sur le tableau */
+#table-overlay table:hover,
+#table-overlay2 table:hover,
+#table-overlay3 table:hover,
+#table-overlay4 table:hover,
+#table-overlay5 table:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Conteneur du graphe */
+.chart_container1 {
+    background-color: #f5f5f5;
+    width: 1060px;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin: 0 auto;
+}
+
+/* Bouton Télécharger Excel */
+#download-excel-button,
+#download-excel-button:hover {
+    background-color: #0d9408;
+}
+
+/* Containers */
+.container2,
+.chart-container2,
+.chart-container3 {
+    display: flex;
+}
+
+/* Titre à droite du graphe */
+.title,
+.title-container2 {
+    text-align: center;
+    flex: 1;
+}
+
+/* Cases à cocher */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+/* Bouton "Réinitialiser" */
+#resetButton,
+#resetButton:hover {
+    background-color: #0077b6;
+}
+
+/* Carte interactive */
+.map__image,
+.map__image path,
+.map__image path:hover,
+.map__list,
+.map__list a,
+.infobulle,
+.region,
+.map-container {
+    width: 50%;
+    float: left;
+}
+
+.map__image path {
+    fill: #a4ced2;
+    stroke: #FFF;
+    stroke-width: 1px;
+    transition: fill 0.3s;
+}
+
+.map__image path:hover {
+    fill: #598f94;
+}
+
+.map__list a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+/* Bouton personnalisé */
+.custom-button,
+.custom-button:hover {
+    background-color: #19729f;
+}
+.custom-button:focus {
+    outline: none;
+}
